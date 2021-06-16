@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+    pomserver:
+        build: ./pomserver
+        container_name: pomserver
+        ports:
+            - 8000:8000
+        deploy:
+            mode: global
+        command: node pomserver.js
+    pomclient:
+        build: ./pomclient
+        depends_on:
+            - pomserver
+        deploy:
+            mode: replicated
+            replicas: 1
+        stdin_open: true
+        tty: true
+        command: bash -c "./test dev1POM.xml pomserver 8000; bash"
