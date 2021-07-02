@@ -1,13 +1,19 @@
-FROM ubuntu:20.04
+FROM alpine:latest as build 
 
-RUN apt-get -yqq update
+RUN apk add make gcc libc-dev
 
-RUN apt-get -yqq install cmake
+WORKDIR /home/POM
 
-RUN apt-get -yqq install iproute2
+COPY Makefile pomcli.c pomclient.c pomclient.h ./
 
-WORKDIR /home/POM/
+RUN make all
 
-ADD . .
+FROM alpine:latest
 
-RUN make
+WORKDIR /home/POM
+
+COPY --from=build /home/POM/test .
+
+COPY dev1POM.xml dev2POM.xml ./
+
+RUN apk add iproute2

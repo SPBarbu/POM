@@ -17,4 +17,4 @@ services:
             replicas: 1
         stdin_open: true
         tty: true
-        command: bash -c "./test dev1POM.xml pomserver 8000; bash"
+        command: sh -c "./test dev1POM.xml pomserver 8000; sh"
