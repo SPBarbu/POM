@@ -14,6 +14,6 @@ WORKDIR /home/POM
 
 COPY --from=build /home/POM/test .
 
-COPY dev1POM.xml dev2POM.xml ./
+COPY dev1POM.xml dev2POM.xml dev3POM.xml dev4POM.xml mock.sh ./
 
 RUN apk add iproute2

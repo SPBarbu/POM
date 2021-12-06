@@ -14,7 +14,7 @@ services:
             - pomserver
         deploy:
             mode: replicated
-            replicas: 1
+            replicas: 4
         stdin_open: true
         tty: true
-        command: sh -c "./test dev1POM.xml pomserver 8000; sh"
+        command: sh

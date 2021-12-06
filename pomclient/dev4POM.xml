@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<device id="02">
+<device id="03">
 	<config id="conf">
 		<type id="tp">Generic</type>
 		<location id='loc'>rm2</location>
