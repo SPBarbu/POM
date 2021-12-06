@@ -3,7 +3,7 @@
 	<config id="conf">
 		<model id="mod">centralized</model>
 		<version id="vers">0.2.1</version>
-		<ipaddr id="ip">127.0.0.1</ipaddr>
+		<ipaddr id="ip">10.122.165.221</ipaddr>
 		<port id="p1">8000</port>
 	</config>
 	<defines id="defs">
