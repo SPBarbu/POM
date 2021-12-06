@@ -67,6 +67,7 @@ var fs = require('fs'),
     searchPOM = '',
     serverID,
     defines,
+    mock_counter = 0,
     server;
 
 // Main Program
@@ -141,7 +142,7 @@ function getTextNode(node) {
 
 // Server Object
 server = net.createServer(function (socket) {
-    var clientIP = '::ffff:10.122.202.105',
+    var clientIP,
     	clientPOM,
     	clientID,
         space,
@@ -153,6 +154,17 @@ server = net.createServer(function (socket) {
         timeout = 600000,
         registered = false,
         eventListeners = [];
+
+    if(mock_counter == 0){
+        clientIP = '::ffff:10.122.202.105';
+        mock_counter++;
+    }else if(mock_counter == 1){
+        clientIP = '::ffff:10.122.135.144';
+        mock_counter++;
+    }else{
+        clientIP = '::ffff:10.122.212.81';
+        mock_counter++;
+    }
 
     console.log('Client ' + clientIP + ' has connected');
     socket.setEncoding('utf8');
