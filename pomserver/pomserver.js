@@ -141,7 +141,7 @@ function getTextNode(node) {
 
 // Server Object
 server = net.createServer(function (socket) {
-    var clientIP = socket.remoteAddress.valueOf(),
+    var clientIP = '::ffff:172.29.10.10',
     	clientPOM,
     	clientID,
         space,
